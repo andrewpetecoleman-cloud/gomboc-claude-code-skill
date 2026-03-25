@@ -1,8 +1,8 @@
 {
   "id": "gomboc-remediation",
   "name": "Gomboc Code Remediation",
-  "description": "Deterministic code remediation for any codebase - fix issues with 94%+ accuracy using Gomboc.ai",
-  "longDescription": "Automatically scan and fix code issues across your entire codebase — infrastructure, applications, configurations, and more. Gomboc uses deterministic AI (no hallucinations) to generate merge-ready fixes with 94%+ acceptance rates.\n\nDesigned as the perfect complement to agentic coding systems — pair with AI agents for continuous, intelligent code improvement.",
+  "description": "Deterministic code remediation powered by ORL - fix issues with 94%+ accuracy",
+  "longDescription": "Gomboc automatically scans and fixes code issues across your entire codebase using the Open Remediation Language (ORL) — a deterministic execution engine that guarantees the same input always produces the same fix output.\n\nUnlike traditional scanners that generate alerts, Gomboc delivers merge-ready pull requests that clear your code issues backlogs.\n\nKey Features:\n• ORL-powered deterministic fixes (not probabilistic AI)\n• Syntax-tree aware matching via Tree-sitter\n• 94%+ merge acceptance rate\n• Support for Terraform, CloudFormation, Python, JavaScript, and 20+ languages\n• Multiple output formats (JSON, Markdown, SARIF)\n\nDesigned as the perfect complement to agentic coding — pair with Claude Code for continuous, intelligent code improvement loops.",
   "version": "0.1.0",
   "author": {
     "name": "OpenClaw Community",
@@ -26,7 +26,12 @@
     "agents",
     "agentic-coding",
     "deterministic",
-    "merge-ready-fixes"
+    "orl",
+    "merge-ready-fixes",
+    "terraform",
+    "cloudformation",
+    "python",
+    "javascript"
   ],
   "tags": [
     "code-quality",
