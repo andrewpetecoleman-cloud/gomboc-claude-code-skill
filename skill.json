@@ -1,0 +1,128 @@
+{
+  "apiVersion": "1.0",
+  "kind": "Skill",
+  "metadata": {
+    "name": "gomboc-remediation",
+    "displayName": "Gomboc Code Remediation",
+    "version": "0.1.0",
+    "description": "Deterministic code remediation for any codebase - fix issues with 94%+ accuracy using Gomboc.ai",
+    "author": "OpenClaw Community",
+    "license": "MIT",
+    "homepage": "https://github.com/andrewpetecoleman-cloud/clawhub-gomboc-security",
+    "repository": "https://github.com/andrewpetecoleman-cloud/clawhub-gomboc-security",
+    "icon": "🔧",
+    "category": "Code Quality",
+    "tags": [
+      "remediation",
+      "code-quality",
+      "security",
+      "infrastructure",
+      "agents",
+      "deterministic",
+      "agentic-coding"
+    ],
+    "keywords": [
+      "code-remediation",
+      "deterministic-fixes",
+      "merge-ready",
+      "agentic-coding",
+      "continuous-improvement",
+      "infrastructure-as-code"
+    ]
+  },
+  "spec": {
+    "capabilities": {
+      "tools": [
+        {
+          "name": "scan",
+          "description": "Scan code for issues (security, quality, infrastructure)",
+          "parameters": {
+            "path": {
+              "type": "string",
+              "description": "Path to scan (file or directory)",
+              "required": true
+            },
+            "policy": {
+              "type": "string",
+              "description": "Remediation policy (default, aws-cis, etc.)",
+              "default": "default"
+            },
+            "format": {
+              "type": "string",
+              "enum": ["json", "markdown", "sarif"],
+              "description": "Output format",
+              "default": "json"
+            }
+          }
+        },
+        {
+          "name": "fix",
+          "description": "Generate deterministic, merge-ready fixes",
+          "parameters": {
+            "path": {
+              "type": "string",
+              "description": "Path to fix",
+              "required": true
+            },
+            "policy": {
+              "type": "string",
+              "description": "Remediation policy",
+              "default": "default"
+            },
+            "format": {
+              "type": "string",
+              "enum": ["pull_request", "patch", "code"],
+              "description": "Output format",
+              "default": "pull_request"
+            },
+            "apply": {
+              "type": "boolean",
+              "description": "Apply fixes automatically",
+              "default": false
+            }
+          }
+        },
+        {
+          "name": "remediate",
+          "description": "Apply fixes directly to code",
+          "parameters": {
+            "path": {
+              "type": "string",
+              "description": "Path to remediate",
+              "required": true
+            },
+            "commit": {
+              "type": "boolean",
+              "description": "Auto-commit after fixing",
+              "default": false
+            },
+            "push": {
+              "type": "boolean",
+              "description": "Push to remote after commit",
+              "default": false
+            }
+          }
+        }
+      ]
+    },
+    "requirements": {
+      "runtime": "python3.7+",
+      "externalServices": [
+        {
+          "name": "Gomboc API",
+          "url": "https://api.app.gomboc.ai",
+          "authRequired": true,
+          "description": "Required for code scanning and fix generation"
+        }
+      ],
+      "environment": {
+        "GOMBOC_PAT": {
+          "type": "string",
+          "description": "Gomboc Personal Access Token",
+          "required": true,
+          "sensitive": true
+        }
+      }
+    }
+  }
+}
